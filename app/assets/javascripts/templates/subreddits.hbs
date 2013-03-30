@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="span4">
+    <div class="mrm">
+      {{ render newSubreddit }}
+      <ul id="subreddits">
+        {{#each subreddit in controller }}
+          <li >
+            <div class="subreddit-icon fui-cross-24"></div>
+            <div class="">
+
+
+              <h4>
+                {{#linkTo subreddits.subreddit subreddit}}<strong>{{ subreddit.name }}</strong>{{/linkTo}}
+              </h4>
+
+
+              {{#unless subreddit.links}}
+                ... loading ...
+              {{else}}
+                {{ subreddit.unreadLinkCount }} unread
+              {{/unless}}
+            </div>
+          </li>
+        {{/each }}
+      </ul>
+    </div>
+  </div>
+  {{ outlet }}
+</div>

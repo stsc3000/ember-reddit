@@ -1,0 +1,17 @@
+
+
+      <div class="span8">
+        <h2>{{ name }}</h2>
+        <ul id="links">
+          {{#each link in controller.links}}
+            <li class="link">
+              <h4>{{ link.title }}</h4>
+              {{ link.score }} - {{ link.author }}
+              <div class="actions">
+                <a class="btn btn-primary" {{action openAndMarkAsRead link}} target="_blank" class="open">Open</a>
+                <a class="btn" {{action markAsRead link}}> Mark as Read </a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
